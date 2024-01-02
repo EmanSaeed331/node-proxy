@@ -13,7 +13,10 @@ const options = {
         [`^/api/users/all`]: '',
     },
 };
-router.get('/all', (0, http_proxy_middleware_1.createProxyMiddleware)(options));
+//router.get('/', createProxyMiddleware(options));
+//app.use('/*', createProxyMiddleware(options));
+app.use(router);
+router.get('/*', (0, http_proxy_middleware_1.createProxyMiddleware)(options));
 app.listen(port, () => {
     console.log(`Server is up on port number ${port}`);
 });
